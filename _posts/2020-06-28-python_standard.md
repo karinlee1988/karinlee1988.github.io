@@ -466,6 +466,7 @@ f = open("filename.txt",encoding="utf8")
 f = open("filename.txt",encoding="utf-8")
 也是一样的
 
+`os.path.basename(filePath)` 将全文件名提取为普通文件名
 
 将字符串序列写入txt文件中，可以采用`f.writelines(seq)`方法
 

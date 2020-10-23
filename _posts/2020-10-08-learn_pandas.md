@@ -36,7 +36,7 @@ def read_excel(
     io,
      # sheet_name参数默认为0，代表第1个sheet页，（从0开始索引）
      # 可根据自己的需要传入
-     # sheetsheet_name=None时返回一个以sheet名称（str）为key，对应sheet表格内容（dataframe）为value的字典
+     # sheet_name=None时返回一个以sheet名称（str）为key，对应sheet表格内容（dataframe）为value的字典
     sheet_name=0, 
      # header参数默认为0，默认excel表第1行为列名（表头），dataframe的数据部分不会包含第1行。
      # header=None 时，读入excel的第1行不再为列名（表头），而是作为数据部分。

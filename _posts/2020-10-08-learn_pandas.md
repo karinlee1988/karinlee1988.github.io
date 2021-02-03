@@ -1,7 +1,7 @@
 ---
 layout: post
 title: pandas 学习笔记
-date: 2020-10-08
+date: 2021-02-03
 Author: karinlee
 categories: 
 tags: [python,pandas]
@@ -48,6 +48,8 @@ def read_excel(
     squeeze=False,
     # 可以设置参数dtype=str 强制读取excel时所有数据为str格式
     dtype=None,  
+    # 2021年xlrd库更新后，不能同时读取xls和xlsx格式的文件了
+    # 指定engine='openpyxl'可以且只能读取xlsx文件，不指定的情况下只能读取xls文件
     engine=None,
     #converters参数指定某列类型。
     # 如 converters={'names':str,'ages':str} 
@@ -110,6 +112,7 @@ writer.save()
         index_label=None,
         startrow=0,
         startcol=0,
+    # 2021年xlwt库更新后，指定engine='openpyxl'另存为xlsx文件，不指定的情况下另存为xls文件
         engine=None,
         merge_cells=True,
         encoding=None,
@@ -121,7 +124,8 @@ writer.save()
 ```
 
 
-- 测试总结1：read_excel和 to_excel都支持.xls和.xlsx格式（需要其他库支持） 
+- 测试总结1：read_excel和 to_excel都支持.xls和.xlsx格式,但需要指定函数内engine参数。默认只支持xls，engine='openpyxl'时只支持xlsx（需要xlrd，xlwt，openpyxl库支持） 
+- 
 
 - 测试总结2：貌似公式计算的值可以被读取。读取为dataframe后再写入，只写入值，不保留公式  
 
@@ -185,12 +189,32 @@ anotherdataframe = dataframe.copy(deep=True) # 深拷贝
 注意!：尽量不要在循环里使用append方法对DataFrame进行操作。经测试DataFrame不会追加内容。最好先将df1，df2转为二维列表list1，list2后，再用list1.extend(list2)循环拼接。拼接好后list1再转为DataFrame。
 
 
-### ExcelFile()
+####  DataFrame.drop_duplicates()去重
+
+语法：`DataFrame.drop_duplicates(subset=None, keep='first', inplace=False)`
+
+- **subset:** 列名，默认所有的列
+- **keep:** 是否保留*{‘first’, ‘last’, False}*，**keep='first'** 表示去重时每组重复数据保留第一条数据，其余数据丢弃； **keep='last'** 表示去重时每组重复数据保留最后一条数据，其余数据丢弃；**keep='False'** 表示去重时每组重复数据全部丢弃，不保留
+- **inplace:** 是否替换*{False, True}*，**inplace=False**表示去重之后不覆盖原表格数据，**inplace=True**表示去重之后原表格数据被覆盖
+
+实例：
+
+```python
+# 对df所有行，若姓名列与身份证号码列一致的行进行去重，重复数据保留第一条。此方法不会修改df，而是返回一个新的DataFrame对象赋予new_df变量
+new_df = df.drop_duplicates(subset=['姓名','身份证号码'],keep='first',inplace=False)
+
+```
+
+
+
+
+
+### pd.ExcelFile()
 
 #### 获取工作薄所有sheet页名称
 
 
-```
+```python
 # 返回sheet_list ，一个包含所有sheet页名称的列表
 demo_excel = pd.ExcelFile(r'demo.xlsx')
 sheet_list = demo_excel.sheet_names

@@ -6,6 +6,7 @@ Author: karinlee
 categories: 
 tags: [python,openpyxl]
 comments: true
+excerpt: 使用openpyxl对.xlsx表格进行处理
 ---
 
 ### 导入openpyxl库

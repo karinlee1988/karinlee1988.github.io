@@ -73,7 +73,7 @@ footer-text: Copyright (c) 2020-2021 李加林
 #
 
 # 输入Disqus shortname，即可添加评论区
-disqus: loffer #shortname
+disqus: #shortname
 
 # 输入Gitalk相关设定，即可添加评论区，具体请看教程
 gitalk:

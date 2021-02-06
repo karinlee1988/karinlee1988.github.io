@@ -12,7 +12,7 @@ comments: true
 
 `import openpyxl`
 
-#### 将xlsx文件打开，并将该文件对象赋予wb变量  
+### 将xlsx文件打开，并将该文件对象赋予wb变量  
 
 
 实例：
@@ -344,7 +344,10 @@ print(cell_range)
 `cell_range`每个元素是一行单元格的元组
 
 
-**表格示例 测试.xlsx Sheet1**
+
+
+
+**附：表格示例 测试.xlsx Sheet1**
 
 
 

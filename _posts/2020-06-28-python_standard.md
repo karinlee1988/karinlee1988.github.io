@@ -461,9 +461,9 @@ None
 
 打开文件
 
-f = open("filename.txt",encoding="utf8")
+`f = open("filename.txt",encoding="utf8")`
 或者 
-f = open("filename.txt",encoding="utf-8")
+`f = open("filename.txt",encoding="utf-8")`
 也是一样的
 
 `os.path.basename(filePath)` 将全文件名提取为普通文件名

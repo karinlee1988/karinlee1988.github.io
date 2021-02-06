@@ -3,8 +3,8 @@ layout: post
 title: pysimplegui基本实例
 date: 2021-02-04
 Author: karinlee
-categories: 
-tags: [python,pysimplegui实例]
+categories: [技术文章]
+tags: [python]
 comments: true
 ---
 

@@ -7,17 +7,11 @@ categories:
 tags: [python,pysimplegui]
 comments: true
 ---
-
 #### 使用pysimplegui创建窗口，首先需要pip install pysimplegui后，导入该库
-
-
 ```python
 import PySimpleGUI as sg
 ```
-
 #### 创建一个基本的图形界面，带文件选择、文件夹选择、输入数据框、按钮
-
-
 ```python
 class BaseGUI(object):
     """
@@ -34,7 +28,7 @@ class BaseGUI(object):
         # 界面布局
         self.layout = [
             # sg.Image()插入图片，支持gif和png
-            [sg.Image(filename=r"D:\MyNutstore\PersonalStudy\PYTHON\WorkOverflow\worktools\images\peppa.png", pad=(150, 0))],
+ [sg.Image(filename=r"D:\MyNutstore\PersonalStudy\PYTHON\WorkOverflow\worktools\images\peppa.png", pad=(150, 0))],
             # sg.Text()显示文本
             [sg.Text('', font=self.FONT, size=self.SIZE)],
             # sg.Input()是输入框
@@ -48,7 +42,6 @@ class BaseGUI(object):
             [sg.Input('  ', key="_FOLDER_", readonly=True, 
             size=(36, 1), font=self.FONT),
              sg.FolderBrowse(button_text='选择文件夹', size=(10, 1), font=self.FONT)],
-            
             [sg.Text(' 请输入数据:', font=self.FONT, size=self.SIZE),
              sg.Input(key='_DATA_', font=self.FONT, size=(10, 1))],
             [sg.Text(' 这里是返回的结果:', font=self.FONT, size=self.SIZE),
@@ -95,7 +88,6 @@ if __name__ == '__main__':
 	tablegui = BaseGUI()
 	tablegui.run()
 ```
-
 **运行上述代码后，创建的图形界面显示如下：**
 
 ![avatar](https://markdown-table-1258154509.cos.ap-guangzhou.myqcloud.com/MarkdownTable/pysimplegui1.jpg)

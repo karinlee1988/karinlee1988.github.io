@@ -14,7 +14,7 @@ comments: true
 ```python
 import PySimpleGUI as sg
 ```
-
+<!-- more -->
 #### 创建一个基本的图形界面，带文件选择、文件夹选择、输入数据框、按钮
 
 

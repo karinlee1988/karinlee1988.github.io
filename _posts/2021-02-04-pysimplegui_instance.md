@@ -3,15 +3,24 @@ layout: post
 title: pysimplegui基本实例
 date: 2021-02-04
 Author: karinlee
-categories: 
 tags: [python,pysimplegui]
-comments: true
+toc: true
 ---
-#### 使用pysimplegui创建窗口，首先需要pip install pysimplegui后，导入该库
+
+PySimpleGUI基于Tkinter，Remi、wxPython和PyQt。使用几十行代码，即可快速创建一个图形界面。
+
+## 使用pysimplegui创建一个基本的窗口实例
+
+### 安装并导入pysimplegui库
+
+**使用pysimplegui创建窗口，首先需要pip install pysimplegui后，导入该库**
+
 ```python
 import PySimpleGUI as sg
 ```
-#### 创建一个基本的图形界面，带文件选择、文件夹选择、输入数据框、按钮
+
+### 创建一个基本的图形界面，带文件选择、文件夹选择、输入数据框、按钮
+
 ```python
 class BaseGUI(object):
     """
@@ -88,12 +97,17 @@ if __name__ == '__main__':
 	tablegui = BaseGUI()
 	tablegui.run()
 ```
+
+### 运行代码生成窗口
+
 **运行上述代码后，创建的图形界面显示如下：**
 
-![avatar](https://markdown-table-1258154509.cos.ap-guangzhou.myqcloud.com/MarkdownTable/pysimplegui1.jpg)
+![avatar](https://markdown-table-1258154509.cos.ap-guangzhou.myqcloud.com/markdown-table/pysimplegui1.jpg)
+
+
 
 **选择文件，文件夹，输入数据后，点击“按我开始”按钮后，显示如下：**
 
-![avatar](https://markdown-table-1258154509.cos.ap-guangzhou.myqcloud.com/MarkdownTable/pysimplegui2.jpg)
+![avatar](https://markdown-table-1258154509.cos.ap-guangzhou.myqcloud.com/markdown-table/pysimplegui2.jpg)
 
 **此时图形界面成功获取数据并经过处理后返回显示。**

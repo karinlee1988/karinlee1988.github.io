@@ -7,9 +7,14 @@ categories:
 tags: [python,openpyxl]
 comments: true
 ---
-### 导入openpyxl库
+
+工作中经常需要面对一大堆excel表格并对其进行处理。不想花时间折腾在无意义的表格处理工作上，那么我推荐使用强大的openpyxl库去搞定重复繁琐的表格工作吧。
+
+## 导入openpyxl库
+
 `import openpyxl`
-### 将xlsx文件打开，并将该文件对象赋予wb变量  
+
+## 将xlsx文件打开，并将该文件对象赋予wb变量  
 实例：
 ```
 wb = openpyxl.load_workbook("测试.xlsx")
@@ -31,7 +36,8 @@ wb=openpyxl.load_workbook("测试.xlsx",read_only=True)
 wb=openpyxl.load_workbook("测试.xlsx",data_only=True)
 ```
 此时，单元格的公式将不会被读取，只读取公式计算后的值。
-### 获得工作薄对象wb后，可以通过以下方式进行操作
+
+## 获得工作薄对象wb后，可以通过以下方式进行操作
 `wb.sheetnames `返回工作薄对象中所有工作表的名称`（:rtype  list）`
 实例：
 ```
@@ -55,7 +61,7 @@ Sheet2
 
 Sheet3
 ```
-#### 通过sheet页的名称，获取wb工作薄对象里的一个工作表对象
+### 通过sheet页的名称，获取wb工作薄对象里的一个工作表对象
 实例：
 ```
 ws= wb['Sheet1']
@@ -75,7 +81,7 @@ print(ws)
 ```
 <Worksheet "Sheet1">
 ```
-#### 创建和删除sheet页
+### 创建和删除sheet页
 实例：
 创建名称为First sheet的sheet页，index=0 代表放在第1个位置，如果不加index参数，默认加在最后
 ```
@@ -95,8 +101,8 @@ print(wb.sheetnames)
 ```
 ['Sheet1', 'Sheet2', 'Sheet3']
 ```
-### 获取工作表对象ws后，可进行如下操作
-#### 获取ws工作表对象中的单个单元格对象
+## 获取工作表对象ws后，可进行如下操作
+### 获取ws工作表对象中的单个单元格对象
 实例：
 ```
 cell = ws['A1']
@@ -107,7 +113,7 @@ print(cell)
 <Cell 'Sheet1'.A1>
 ```
 此时，cell变量是一个ws工作表对象中的A1单元格对象
-#### 也可以用另外一种方式来获取单个单元格对象
+### 也可以用另外一种方式来获取单个单元格对象
 实例：
 ```
 cell = ws.cell(row=1,column=1)
@@ -117,7 +123,7 @@ print(cell)
 ```
 <Cell 'Sheet1'.A1>
 ```
-#### 对于一个单元格对象cell，可以通过cell.value获取或者修改该单元格里的数值
+### 对于一个单元格对象cell，可以通过cell.value获取或者修改该单元格里的数值
 实例：
 ```
 cell = ws['A1']
@@ -128,7 +134,7 @@ print(cell.value)
 测试A1
 ```
 该内容即为A1单元格里的数值
-#### 可以通过赋值的形式来修改数据
+### 可以通过赋值的形式来修改数据
 实例：
 ```
 cell = ws['A1']
@@ -145,7 +151,7 @@ print(cell.value)
 ```
 此时 A1单元格的值已经从  测试A1   修改为    
 测试修改
-#### 获取单行，单列
+### 获取单行，单列
 实例：
 ```
 colC = ws['C']
@@ -166,7 +172,7 @@ print(row4)
 'Sheet1'.E4>)
 ```
 返回一个整行或者整列所有单元格对象组成的元组
-#### 获取多行，多列
+### 获取多行，多列
 实例：
 ```
 col_range = ws['B:C'] 
@@ -197,7 +203,7 @@ print(row_range)
 'Sheet1'.D3>, <Cell 'Sheet1'.E3>))
 ```
 可以看出，col_range和 row_range都是二维元组，col_range每个元素是一列单元格的元组，row_range每个元素是一行单元格的元组
-#### 获取一个区域
+### 获取一个区域
 实例：
 ```
 cell_range = ws["B2:D4"]

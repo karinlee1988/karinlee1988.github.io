@@ -3,9 +3,8 @@ layout: post
 title: openpyxl 学习笔记
 date: 2021-02-02
 Author: karinlee
-categories: 
 tags: [python,openpyxl]
-comments: true
+toc: true
 ---
 
 工作中经常需要面对一大堆excel表格并对其进行处理。不想花时间折腾在无意义的表格处理工作上，那么我推荐使用强大的openpyxl库去搞定重复繁琐的表格工作吧。

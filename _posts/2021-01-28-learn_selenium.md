@@ -3,9 +3,8 @@ layout: post
 title: python selenium 学习笔记
 date: 2021-01-28
 Author: karinlee
-categories: 
 tags: [python,selenium]
-comments: true
+toc: true
 ---
 Selenium 是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。
 

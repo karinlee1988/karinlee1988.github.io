@@ -4,7 +4,7 @@ title: pandas 学习笔记
 date: 2021-02-03
 Author: karinlee
 tags: [python,pandas]
-toc:true
+toc: true
 ---
 
 pandas 是基于NumPy 的一种工具，该工具是为解决数据分析任务而创建的。Pandas 纳入了大量库和一些标准的数据模型，提供了高效地操作大型数据集所需的工具。

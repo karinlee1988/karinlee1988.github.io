@@ -2,10 +2,9 @@
 layout: post
 title: 使用python3 itchat库实现微信自动回复好友私聊和群聊并记录
 date: 2020-06-28
-Author: karinlee
-categories: 
+Author: karinlee 
 tags: [python,itchat]
-comments: true
+toc: true
 ---
 
 对于职场人士来说，微信已经成为了一种工作工具，领导微信私聊布置工作任务，各种微信群里也不时会发布一些工作信息，一不小心，就会漏接一些重要的通知和任务。而且有时候工作忙起来，忙完一轮，打开微信，铺天盖地的信息迎面而来，不知道哪些是闲聊，哪些是工作任务 ，又要一条条去翻，费时费力。

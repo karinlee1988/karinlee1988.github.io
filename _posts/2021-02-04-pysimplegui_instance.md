@@ -111,3 +111,17 @@ if __name__ == '__main__':
 ![avatar](https://markdown-table-1258154509.cos.ap-guangzhou.myqcloud.com/markdown-table/pysimplegui2.jpg)
 
 **此时图形界面成功获取数据并经过处理后返回显示。**
+
+
+
+### 使用技巧
+
+```python
+[sg.Output(size=(55, 6), font=("微软雅黑", 12), background_color='light gray',key='_OUTPUT_')]
+```
+和
+```python
+self.window.FindElement('_OUTPUT_').Update('')
+```
+配合使用，可以实现output框内容清屏。
+

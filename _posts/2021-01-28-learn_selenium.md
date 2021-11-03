@@ -16,27 +16,44 @@ Selenium 是一个用于Web应用程序测试的工具。Selenium测试直接�
 
 **如果不添加webdriver的文件路径到环境变量，也可以在实例化浏览器时传入webdriver文件路径的参数。**
 
+~~通过网站的url，我们可以获取一个浏览器实例（旧方法，建议不要使用这种方法）：~~
 
-```
+```python
 from selenium import webdriver
-```
-通过网站的url，我们可以获取一个浏览器实例：
-```
 #  某个网址
 url = "http://www.xxxxxx.com"
 browser = webdriver.Chrome(r'D:\chromedriver.exe')# 没有添加path时
 browser1 = webdriver.Chrome()# 已经添加path时
 browser.get(url)
 ```
+
+通过网站的url，我们可以获取一个浏览器实例（20211103新方法，建议使用）：
+```python
+from selenium import webdriver
+from selenium.webdriver.common.by import By  # 选择元素时使用
+from selenium.webdriver.chrome.service import Service
+
+#  某个网址
+url = "http://www.xxxxxx.com"
+s= Service(r'C:\chromedriver.exe')
+browser = webdriver.Chrome(service=s)# 没有添加path时
+browser.get(url)
+
+
+```
+
+
 通过`browser.maximize_window()`可以最大化窗口
 此时，我们可以对browser实例进行各种操作。
 
-## 使用xpath，name，id等方式定位元素
+## 使用xpath，name，id等方式定位元素（旧）
+
 ```
 browser.find_element_by_xpath()
 browser.find_element_by_name()
 browser.find_element_by_id()
 ```
+
 实例：输入用户名，密码后点击登录过程
 ```
 # name定位
@@ -60,31 +77,81 @@ browser.find_element_by_xpath('//*[@id="S_BEGIN_DT"]').clear()
 ```
 `.sendkeys("str")`可以在输入框对象里输入信息，`.click()`等同于单击该对象。
 
-##  使用class,tag等方式定位元素
+##  使用class,tag等方式定位元素（旧）
 ```
 browser.find_elements_by_class_name()
 browser.find_element_by_class_name()
 browser.find_elements_by_tag_name()
 ```
 
-###  使用find_elements_by_class_name 获取元素,返回包含多个webelement对象的列表。如果没有获取到，返回空列表
+使用find_elements_by_class_name 获取元素,返回包含多个webelement对象的列表。如果没有获取到，返回空列表
 ```
 elements = browser.find_elements_by_class_name('animal')
 for e in elements:
 	print(e.text)
 ```
-###  使用find_element_by_class_name 获取元素，返回class第1个元素。如果没有获取到，抛出异常
+使用find_element_by_class_name 获取元素，返回class第1个元素。如果没有获取到，抛出异常
 ```
 element = browser.find_element_by_class_name('animal')
 print(element.text)
 ```
 
-### 使用find_elements_by_tag_name标签获取（标签就是尖括号里的内容，如`<div>`,`<span>`这种
+使用find_elements_by_tag_name标签获取（标签就是尖括号里的内容，如`<div>`,`<span>`这种
 ```
 elements = browser.find_elements_by_tag_name('span')
 for e in elements:
 	print(e.text)
 ```
+
+
+## 统一使用find_element()函数定位元素
+
+
+20211103新方法：统一使用find_element()定位。find_element()函数定义如下：
+
+
+
+```python
+def find_element(self, by=By.ID, value=None) -> WebElement:
+    """
+    Find an element given a By strategy and locator.
+
+    :Usage:
+    ::
+
+    element = driver.find_element(By.ID, 'foo')
+
+    :rtype: WebElement
+    """
+```
+因此，我们可以统一使用find_element()函数，并传入参数确定使用xpath，name，id或其他方式定位，不需要使用不同函数定位。实例如下：
+
+```python
+from selenium.webdriver.common.by import By  # 导入By模块
+
+browser.find_element(by=By.XPATH,value='xpath表达式')
+
+```
+
+By模块结构如下：
+
+```
+class By(object):
+    """
+    Set of supported locator strategies.
+    """
+
+    ID = "id"
+    XPATH = "xpath"
+    LINK_TEXT = "link text"
+    PARTIAL_LINK_TEXT = "partial link text"
+    NAME = "name"
+    TAG_NAME = "tag name"
+    CLASS_NAME = "class name"
+    CSS_SELECTOR = "css selector"
+
+```
+从上可知，By包含了XPATH在内的各种定位方式。
 
 ## 切换frame
 
@@ -122,5 +189,4 @@ Selenium 的 Webdriver 对象 提供` implicitly_wait`方法，接受一个参�
 如果我们 加入如下代码`wd.implicitly_wait(10)`
 那么后续所有的 find_element 或者 find_elements 之类的方法调用 都会采用上面的策略：
 如果找不到元素， 每隔 半秒钟 再去界面上查看一次， 直到找到该元素， 或者 过了10秒 最大时长。当发现元素没有找到的时候， 并不 立即返回 找不到元素的错误。而是周期性（每隔半秒钟）重新寻找该元素，直到该元素找到，或者超出指定最大等待时长，这时才 抛出异常（如果是 find_elements 之类的方法， 则是返回空列表）。
-
 

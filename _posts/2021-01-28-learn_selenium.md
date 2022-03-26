@@ -6,7 +6,7 @@ Author: karinlee
 tags: [python,selenium]
 toc: true
 ---
-Selenium 是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。
+Selenium 是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。
 
 
 
@@ -20,7 +20,7 @@ Selenium 是一个用于Web应用程序测试的工具。Selenium测试直接�
 
 ```python
 from selenium import webdriver
-#  某个网址
+#  某个网址
 url = "http://www.xxxxxx.com"
 browser = webdriver.Chrome(r'D:\chromedriver.exe')# 没有添加path时
 browser1 = webdriver.Chrome()# 已经添加path时
@@ -33,7 +33,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By  # 选择元素时使用
 from selenium.webdriver.chrome.service import Service
 
-#  某个网址
+#  某个网址
 url = "http://www.xxxxxx.com"
 s= Service(r'C:\chromedriver.exe')
 browser = webdriver.Chrome(service=s)# 没有添加path时
@@ -190,3 +190,14 @@ Selenium 的 Webdriver 对象 提供` implicitly_wait`方法，接受一个参�
 那么后续所有的 find_element 或者 find_elements 之类的方法调用 都会采用上面的策略：
 如果找不到元素， 每隔 半秒钟 再去界面上查看一次， 直到找到该元素， 或者 过了10秒 最大时长。当发现元素没有找到的时候， 并不 立即返回 找不到元素的错误。而是周期性（每隔半秒钟）重新寻找该元素，直到该元素找到，或者超出指定最大等待时长，这时才 抛出异常（如果是 find_elements 之类的方法， 则是返回空列表）。
 
+## 键盘按键输入
+首先，加载模块
+```
+from selenium.webdriver.common.keys import Keys
+```
+
+然后可以使用如下方式
+
+    browser.find_element(by=By.XPATH,value='xpath表达式').send_keys(Keys.ENTER)
+
+等效于在该元素上按下回车键。

@@ -24,10 +24,10 @@ url:
 #
 
 # 你的博客logo图片URL，建议尺寸不超过300px × 300px
-avatar: https://markdown-table-1258154509.cos.ap-guangzhou.myqcloud.com/github-pages/peppa.png
+avatar: https://image-hosting-1258154509.cos.ap-guangzhou.myqcloud.com/peppa.png
 
 # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
-favicon: https://markdown-table-1258154509.cos.ap-guangzhou.myqcloud.com/github-pages/daddypig.png
+favicon: https://image-hosting-1258154509.cos.ap-guangzhou.myqcloud.com/daddypig.png
 
 
 # 菜单中的按钮
@@ -66,7 +66,7 @@ footer-links:
   youtube: # channel/<your_long_string> or user/<user-name>
 
 # 站点页脚的文字
-footer-text: Copyright (c) 2020-2023 李加林
+footer-text: Copyright (c) 2020-2024 李加林
 
 #
 # 评论，注意，请不要同时添加多种不同的评论区

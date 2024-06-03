@@ -102,13 +102,13 @@ if __name__ == '__main__':
 
 **运行上述代码后，创建的图形界面显示如下：**
 
-![avatar](https://markdown-table-1258154509.cos.ap-guangzhou.myqcloud.com/markdown-table/pysimplegui1.jpg)
+![avatar](https://image-hosting-1258154509.cos.ap-guangzhou.myqcloud.com/pysimplegui1.jpg)
 
 
 
 **选择文件，文件夹，输入数据后，点击“按我开始”按钮后，显示如下：**
 
-![avatar](https://markdown-table-1258154509.cos.ap-guangzhou.myqcloud.com/markdown-table/pysimplegui2.jpg)
+![avatar](https://image-hosting-1258154509.cos.ap-guangzhou.myqcloud.com/pysimplegui2.jpg)
 
 **此时图形界面成功获取数据并经过处理后返回显示。**
 

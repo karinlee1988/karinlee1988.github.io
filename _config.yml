@@ -7,7 +7,7 @@
 # 井号后面的文字是说明文档，不会被程序读取。
 
 # 描述/签名
-name: "李加林"
+name: "KARINLEE"
 description: "学海无涯"
 
 # 输入你的网站域名（如果你没有添加自己的域名，而是直接用GitHub pages分配的域名的话可以省略）
@@ -66,7 +66,7 @@ footer-links:
   youtube: # channel/<your_long_string> or user/<user-name>
 
 # 站点页脚的文字
-footer-text: Copyright (c) 2020-2025 李加林
+footer-text: Copyright (c) 2020-2025 KARINLEE
 
 #
 # 评论，注意，请不要同时添加多种不同的评论区

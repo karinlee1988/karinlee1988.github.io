@@ -4,7 +4,7 @@ title: 关于
 permalink: /about/
 ---
 
-李加林的个人博客。
+KARINLEE的个人博客。
 
 ### 技能
 
